@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoCAD Command Bible for Technical Drawing - ArchyClass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E85A2A;
+            --bg: #0A0A0B;
+            --card: #111113;
+            --text: #F5F5F5;
+            --text-muted: #A1A1AA;
+            --border: #27272A;
+            --code-bg: #1A1A1D;
+            --success: #10B981;
+        }
+        * {margin:0;padding:0;box-sizing:border-box}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .header {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 32px 20px 80px;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 32px;
+        }
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        .sidebar-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .sidebar-link {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            transition: all 0.2s;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background: var(--code-bg);
+            color: var(--primary);
+        }
+        .main-content {
+            min-width: 0;
+        }
+        .page-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            margin-bottom: 12px;
+        }
+        .page-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+        }
+        .stats-bar {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .stat {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 12px 16px;
+            border-radius: 8px;
+        }
+        .stat-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .search-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 16px;
+            width: 100%;
+            color: var(--text);
+            font-size: 1rem;
+            margin-bottom: 32px;
+            font-family: 'Inter', sans-serif;
+        }
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255,107,53,0.1);
+        }
+        .category {
+            margin-bottom: 48px;
+            scroll-margin-top: 100px;
+        }
+        .category-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+        .category-desc {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .command-grid {
+            display: grid;
+            gap: 16px;
+        }
+        .command-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .command-card:hover {
+            border-color: var(--primary);
+        }
+        .command-header {
+            padding: 16px 20px;
+            background: var(--code-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .command-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+        .command-alias {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-left: 8px;
+        }
+        .command-body {
+            padding: 20px;
+            display: none;
+        }
+        .command-card.open .command-body {
+            display: block;
+        }
+        .command-desc {
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+        .command-syntax {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            cursor: pointer;
+        }
+        .copy-btn:hover {
+            color: var(--primary);
+        }
+        .steps-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        .steps-list {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+        .steps-list li {
+            margin-bottom: 6px;
+        }
+        .tag-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+        .tag {
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .tag-waec {
+            background: rgba(255,107,53,0.15);
+            color: var(--primary);
+        }
+        .tag-ss1 {
+            background: rgba(16,185,129,0.15);
+            color: var(--success);
+        }
+        .pro-tip {
+            background: rgba(255,107,53,0.08);
+            border-left: 3px solid var(--primary);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 16px;
+            font-size: 0.85rem;
+        }
+        .pro-tip strong {
+            color: var(--primary);
+        }
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+                margin-bottom: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">ArchyClass</a>
+            <a href="index.html" style="color:var(--text-muted);text-decoration:none;font-size:0.9rem;">← Back to Home</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-title">Categories</div>
+            <a href="#draw" class="sidebar-link">1. Draw Commands</a>
+            <a href="#modify" class="sidebar-link">2. Modify Commands</a>
+            <a href="#dimension" class="sidebar-link">3. Dimension + Text</a>
+            <a href="#layers" class="sidebar-link">4. Layers + Properties</a>
+            <a href="#layout" class="sidebar-link">5. Layout + Plot</a>
+            <a href="#advanced" class="sidebar-link">6. SS3 Advanced</a>
+        </aside>
+
+        <main class="main-content">
+            <h1 class="page-title">AutoCAD Command Bible</h1>
+            <p class="page-subtitle">Every command you need for SS1-SS3 Technical Drawing + WAEC. Used by LASU Architecture students. Works on AutoCAD Web & Mobile.</p>
+            
+            <div class="stats-bar">
+                <div class="stat">
+                    <div class="stat-num">35+</div>
+                    <div class="stat-label">Commands</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">WAEC Covered</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">SS1-SS3</div>
+                    <div class="stat-label">All Classes</div>
+                </div>
+            </div>
+
+            <input type="text" class="search-box" id="searchBox" placeholder="Search commands... e.g. trim, array, viewport">
+
+            <section class="category" id="draw">
+                <h2 class="category-title">1. Draw Commands</h2>
+                <p class="category-desc">Foundation for SS1. Create basic geometry. Master these first.</p>
+                <div class="command-grid">
+                    
+                    <div class="command-card">
+                        <div class="command-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div>
+                                <span class="command-name">LINE</span>
+                                <span class="command-alias">L</span>
+                            </div>
+                            <span style="color:var(--text-muted);">+</span>
+                        </div>
+                        <div class="command-body">
+                            <div class="command-desc">Creates straight line segments. Most used command in TD.</div>
+                            <div class="command-syntax">
+                                Command: LINE or L<br>
+                                Specify first point: Click or 0,0<br>
+                                Specify next point: Click or @100,0
+                                <button class="copy-btn" onclick="navigator.clipboard.writeText('L')">Copy</button>
+                            </div>
+                            <div class="steps-title">How to use for WAEC:</div>
+                            <ol class="steps-list">
+                                <li>Type L → Enter</li>
+                                <li>Click start point or type coordinates like 50,50</li>
+                                <li>For horizontal: Type @100,0 → Enter. For vertical: @0,100</li>
+                                <li>Press Enter to end, or C to close shape</li>
+                            </ol>
+                            <div class="pro-tip"><strong>Pro Tip:</strong> Use ORTHO F8 to force 90° lines. Critical for orthographic projections in SS3.</div>
+                            <div class="tag-group">
+                                <span class="tag tag-waec">WAEC SS1 Week 2</span>
+                                <span class="tag tag-ss1">SS1 Foundation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div>
+                                <span class="command-name">OFFSET</span>
+                                <span class="command-alias">O</span>
+                            </div>
+                            <span style="color:var(--text-muted);">+</span>
+                        </div>
+                        <div class="command-body">
+                            <div class="command-desc">Creates parallel lines/curves at specified distance. Essential for wall thickness.</div>
+                            <div class="command-syntax">
+                                Command: OFFSET or O<br>
+                                Specify offset distance: 5<br>
+                                Select object: Click line<br>
+                                Specify side: Click
+                                <button class="copy-btn" onclick="navigator.clipboard.writeText('O')">Copy</button>
+                            </div>
+                            <div class="steps-title">SS2 Application:</div>
+                            <ol class="steps-list">
+                                <li>Draw outer wall line first</li>
+                                <li>Type O → Enter → Type 9 → Enter for 225mm wall</li>
+                                <li>Click wall line → Click inside for inner wall</li>
+                            </ol>
+                            <div class="pro-tip"><strong>Pro Tip:</strong> Use for section hatching boundaries. Offset 3mm for concrete slab thickness.</div>
+                            <div class="tag-group">
+                                <span class="tag tag-waec">WAEC SS2 Week 6</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div>
+                                <span class="command-name">ARRAY</span>
+                                <span class="command-alias">AR</span>
+                            </div>
+                            <span style="color:var(--text-muted);">+</span>
+                        </div>
+                        <div class="command-body">
+                            <div class="command-desc">Creates multiple copies in rectangular or polar pattern. SS3 time saver.</div>
+                            <div class="command-syntax">
+                                Command: ARRAYRECT or AR<br>
+                                Select objects → Enter<br>
+                                Columns: 5, Rows: 1, Spacing: 3000
+                                <button class="copy-btn" onclick="navigator.clipboard.writeText('AR')">Copy</button>
+                            </div>
+                            <div class="steps-title">WAEC SS3 Use Case:</div>
+                            <ol class="steps-list">
+                                <li>Draw one window</li>
+                                <li>AR → Select window → Enter</li>
+                                <li>Set Columns: 4, Between: 1200 for 4 windows at 1.2m c/c</li>
+                            </ol>
+                            <div class="pro-tip"><strong>Pro Tip:</strong> ARRAYCLASSIC for old dialog. Use ARRAYPOLAR for circular stairs.</div>
+                            <div class="tag-group">
+                                <span class="tag tag-waec">WAEC SS3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="category" id="layers">
+                <h2 class="category-title">4. Layers + Properties</h2>
+                <p class="category-desc">SS3 Professional Practice. WAEC marks you down if you don't use layers.</p>
+                <div class="command-grid">
+                    
+                    <div class="command-card">
+                        <div class="command-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div>
+                                <span class="command-name">LAYER</span>
+                                <span class="command-alias">LA</span>
+                            </div>
+                            <span style="color:var(--text-muted);">+</span>
+                        </div>
+                        <div class="command-body">
+                            <div class="command-desc">Manages layers. Think of layers as transparent sheets. Walls on one, dimensions on another.</div>
+                            <div class="command-syntax">
+                                Command: LAYER or LA<br>
+                                New Layer: WALL, TEXT, DIM, HATCH
+                                <button class="copy-btn" onclick="navigator.clipboard.writeText('LA')">Copy</button>
+                            </div>
+                            <div class="steps-title">WAEC Layer Standard:</div>
+                            <ol class="steps-list">
+                                <li>WALL - Continuous, 0.5mm, White</li>
+                                <li>DIM - Continuous, 0.25mm, Red</li>
+                                <li>HATCH - Continuous, 0.18mm, Yellow</li>
+                                <li>TEXT - Continuous, 0.35mm, Cyan</li>
+                            </ol>
+                            <div class="pro-tip"><strong>Pro Tip:</strong> Freeze DIM layer before plotting if teacher wants no dimensions. Turn off HATCH to see under it.</div>
+                            <div class="tag-group">
+                                <span class="tag tag-waec">WAEC SS3 Compulsory</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        const searchBox = document.getElementById('searchBox');
+        const cards = document.querySelectorAll('.command-card');
+        
+        searchBox.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(term) ? 'block' : 'none';
+            });
+        });
+
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+                e.target.classList.add('active');
+            });
+        });
+    </script>
+</body>
+  </html>
