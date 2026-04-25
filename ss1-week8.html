@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS1 Week 8: Construction of Basic Shapes | ArchyClass</title>
+    <style>
+        :root {
+            --bg-dark: #0d0d0d;
+            --bg-card: #1a1a1a;
+            --accent: #ff5722;
+            --accent-light: #ff7043;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --border: #333333;
+        }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.7; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            color: var(--text-secondary);
+            background: var(--bg-dark);
+        }
+        h1 { 
+            color: var(--text-primary); 
+            border-bottom: 3px solid var(--accent); 
+            padding-bottom: 10px; 
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        h2 { 
+            color: var(--accent-light); 
+            margin-top: 35px; 
+            border-left: 4px solid var(--accent); 
+            padding-left: 12px;
+            font-size: 1.4rem;
+        }
+        h3 { color: var(--text-primary); margin-top: 25px; font-size: 1.2rem; }
+        h4 { color: var(--accent-light); margin-top: 20px; }
+        .note { 
+            background: var(--bg-card); 
+            padding: 15px; 
+            border-left: 5px solid var(--accent); 
+            margin: 25px 0; 
+            border-radius: 0 8px 8px 0;
+        }
+        .steps {
+            background: var(--bg-card);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid var(--border);
+        }
+        ul, ol { padding-left: 25px; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--accent-light); }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">← Back to All Weeks</a>
+
+    <h1>📐 SS1 Technical Drawing: Week 8<br>Construction of Basic Shapes</h1>
+    
+    <div class="note">
+        <strong>Learning Objectives:</strong> By the end of this lesson, students should be able to construct lines, angles, triangles, and circles using compasses and rulers only - no protractor.
+    </div>
+
+    <h2>1. Overview</h2>
+    <p><strong>Geometric construction</strong> is the process of drawing shapes using only a <strong>compass, straightedge (ruler), and pencil</strong> - no protractor, no measurements.</p>
+    
+    <p>These constructions form the foundation of all technical drawing. Every complex shape is built from these basic constructions.</p>
+    
+    <p><strong>Key Rule:</strong> All construction lines must be <strong>light (2H pencil)</strong> and should NOT be erased. They prove you used correct methods.</p>
+
+    <h2>2. Basic Constructions</h2>
+
+    <h3>A. To Bisect a Line AB</h3>
+    <div class="steps">
+        <strong>Steps:</strong>
+        <ol>
+            <li>Draw line AB of any length</li>
+            <li>With A as centre, radius > ½AB, draw arcs above and below AB</li>
+            <li>With B as centre, same radius, draw arcs to intersect the first arcs at C and D</li>
+            <li>Join CD. CD bisects AB at 90° at point M</li>
+            <li>AM = MB and ∠AMC = 90°</li>
+        </ol>
+    </div>
+
+    <h3>B. To Bisect an Angle ABC</h3>
+    <div class="steps">
+        <strong>Steps:</strong>
+        <ol>
+            <li>With B as centre, any radius, draw an arc cutting BA at P and BC at Q</li>
+            <li>With P as centre, radius > ½PQ, draw an arc</li>
+            <li>With Q as centre, same radius, draw an arc to intersect at R</li>
+            <li>Join BR. BR bisects ∠ABC. ∠ABR = ∠RBC</li>
+        </ol>
+    </div>
+
+    <h3>C. To Construct 60° Angle</h3>
+    <div class="steps">
+        <strong>Steps:</strong>
+        <ol>
+            <li>Draw line AB</li>
+            <li>With A as centre, any radius, draw an arc cutting AB at P</li>
+            <li>With P as centre, same radius, cut the arc at Q</li>
+            <li>Join AQ. ∠BAQ = 60°</li>
+        </ol>
+    </div>
+
+    <h3>D. To Construct 90° Angle</h3>
+    <div class="steps">
+        <strong>Steps:</strong>
+        <ol>
+            <li>Construct 60° as above to get point Q</li>
+            <li>With Q as centre, same radius, cut the arc at R</li>
+            <li>Bisect ∠QAR to get 30°</li>
+            <li>60° + 30° = 90°. Or simply erect a perpendicular using line bisection method</li>
+        </ol>
+    </div>
+
+    <h3>E. To Construct an Equilateral Triangle</h3>
+    <div class="steps">
+        <strong>Steps:</strong>
+        <ol>
+            <li>Draw base AB</li>
+            <li>With A as centre, radius AB, draw an arc</li>
+            <li>With B as centre, same radius AB, draw an arc to intersect at C</li>
+            <li>Join AC and BC. ABC is equilateral: all sides equal, all angles 60°</li>
+        </ol>
+    </div>
+
+    <h3>F. To Construct a Square</h3>
+    <div class="steps">
+        <strong>Steps:</strong>
+        <ol>
+            <li>Draw base AB</li>
+            <li>At A, erect a perpendicular AD = AB using 90° construction</li>
+            <li>With D as centre, radius AB, draw an arc</li>
+            <li>With B as centre, same radius AB, draw an arc to intersect at C</li>
+            <li>Join BC and DC. ABCD is a square</li>
+        </ol>
+    </div>
+
+    <h3>G. To Draw a Circle Through 3 Points A, B, C</h3>
+    <div class="steps">
+        <strong>Steps:</strong>
+        <ol>
+            <li>Join AB and BC</li>
+            <li>Bisect AB and BC using perpendicular bisectors</li>
+            <li>The bisectors meet at O - the centre of the circle</li>
+            <li>With O as centre, radius OA (or OB or OC), draw the circle</li>
+        </ol>
+    </div>
+
+    <h3>H. To Divide a Line into N Equal Parts</h3>
+    <div class="steps">
+        <strong>Example: Divide AB into 5 equal
