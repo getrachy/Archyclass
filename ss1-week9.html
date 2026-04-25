@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS1 Week 9: Scales and Scaling | ArchyClass</title>
+    <style>
+        :root {
+            --bg-dark: #0d0d0d;
+            --bg-card: #1a1a1a;
+            --accent: #ff5722;
+            --accent-light: #ff7043;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --border: #333333;
+        }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.7; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            color: var(--text-secondary);
+            background: var(--bg-dark);
+        }
+        h1 { 
+            color: var(--text-primary); 
+            border-bottom: 3px solid var(--accent); 
+            padding-bottom: 10px; 
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        h2 { 
+            color: var(--accent-light); 
+            margin-top: 35px; 
+            border-left: 4px solid var(--accent); 
+            padding-left: 12px;
+            font-size: 1.4rem;
+        }
+        h3 { color: var(--text-primary); margin-top: 25px; font-size: 1.2rem; }
+        h4 { color: var(--accent-light); margin-top: 20px; }
+        .note { 
+            background: var(--bg-card); 
+            padding: 15px; 
+            border-left: 5px solid var(--accent); 
+            margin: 25px 0; 
+            border-radius: 0 8px 8px 0;
+        }
+        .formula {
+            background: #000;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1rem;
+            margin: 20px 0;
+            border: 1px solid var(--accent);
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 20px 0; 
+            background: var(--bg-card);
+        }
+        th, td { 
+            border: 1px solid var(--border); 
+            padding: 12px; 
+            text-align: left; 
+        }
+        th { 
+            background-color: var(--accent); 
+            color: white; 
+        }
+        tr:nth-child(even) { background-color: #222; }
+        ul, ol { padding-left: 25px; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--accent-light); }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">← Back to All Weeks</a>
+
+    <h1>📐 SS1 Technical Drawing: Week 9<br>Introduction to Scales and Scaling</h1>
+    
+    <div class="note">
+        <strong>Learning Objectives:</strong> By the end of this lesson, students should be able to define scale, state types of scales, and convert actual dimensions to drawing dimensions using a given scale.
+    </div>
+
+    <h2>1. Overview</h2>
+    <p>A <strong>scale</strong> is the ratio of the size of the drawing to the size of the actual object.</p>
+    
+    <p>Most objects are either <strong>too large</strong> to draw full size (e.g., a house) or <strong>too small</strong> to see details (e.g., a watch gear). Scaling allows us to represent them proportionally on paper.</p>
+
+    <div class="formula">
+        <strong>Scale = Drawing Size : Actual Size</strong>
+    </div>
+
+    <h2>2. Types of Scales</h2>
+
+    <h3>A. Full Scale (1:1)</h3>
+    <ul>
+        <li><strong>Drawing size = Actual size</strong></li>
+        <li>Used when object can fit on paper comfortably</li>
+        <li>Example: Small machine parts, bolts, nuts</li>
+        <li>Written as <strong>1:1</strong> or <strong>SCALE 1:1</strong></li>
+    </ul>
+
+    <h3>B. Reduction Scale</h3>
+    <ul>
+        <li><strong>Drawing size < Actual size</strong> – Drawing is smaller than real object</li>
+        <li>Used for large objects: buildings, bridges, land</li>
+        <li><strong>Common reduction scales:</strong> 1:2, 1:5, 1:10, 1:20, 1:50, 1:100, 1:200, 1:1000</li>
+        <li><strong>Example 1:2</strong> means 1mm on drawing = 2mm on actual object. So 100mm object = 50mm drawing</li>
+    </ul>
+
+    <h3>C. Enlargement Scale</h3>
+    <ul>
+        <li><strong>Drawing size > Actual size</strong> – Drawing is larger than real object</li>
+        <li>Used for tiny objects: watch parts, electronic components, microchips</li>
+        <li><strong>Common enlargement scales:</strong> 2:1, 5:1, 10:1, 20:1, 50:1</li>
+        <li><strong>Example 2:1</strong> means 2mm on drawing = 1mm on actual object. So 5mm object = 10mm drawing</li>
+    </ul>
+
+    <h2>3. Standard Recommended Scales (ISO)</h2>
+    <table>
+        <tr><th>Category</th><th>Recommended Scales</th></tr>
+        <tr><td><strong>Enlargement</strong></td><td>50:1, 20:1, 10:1, 5:1, 2:1</td></tr>
+        <tr><td><strong>Full Size</strong></td><td>1:1</td></tr>
+        <tr><td><strong>Reduction</strong></td><td>1:2, 1:5, 1:10, 1:20, 1:50, 1:100, 1:200, 1:500, 1:1000, 1:2000, 1:5000, 1:10000</td></tr>
+    </table>
+    <p><strong>Rule:</strong> Always use standard scales. Avoid 1:3, 1:7, 1:9 because they are hard to calculate.</p>
+
+    <h2>4. How to Apply Scale</h2>
+    
+    <h3>Formula Method:</h3>
+    <div class="formula">
+        <strong>Drawing Length = Actual Length ÷ Scale Factor</strong><br><br>
+        <strong>Actual Length = Drawing Length × Scale Factor</strong>
+    </div>
+
+    <h3>Worked Examples:</h3>
+    <ol>
+        <li><strong>Example 1:</strong> A line is 120mm long. Draw it at scale 1:2<br>
+        Drawing Length = 120 ÷ 2 = <strong>60mm</strong></li>
+        
+        <li><strong>Example 2:</strong> On a drawing at scale 1:50, a wall measures 80mm. What is actual length?<br>
+        Actual Length = 80 × 50 = <strong>4000mm = 4m</strong></li>
+        
+        <li><strong>Example 3:</strong> A gear tooth is 2mm. Draw at scale 5:1<br>
+        Drawing Length = 2 × 5 = <strong>10mm</strong></li>
+    </ol>
+
+    <h2>5. Scale Rules & Scale Drawings</h2>
+    <ul>
+        <li><strong>Scale Rule:</strong> Special ruler with multiple scales marked. Never use it as a normal ruler.</li>
+        <li><strong>Always state the scale</strong> in the title block: e.g., "SCALE 1:50"</li>
+        <li><strong>All dimensions on drawing must be actual sizes</strong> – Not scaled dimensions. If wall is 4m, write "4000" not "80"</li>
+        <li><strong>Never write "NOT TO SCALE"</strong> unless absolutely necessary. It makes drawings useless.</li>
+    </ul>
+
+    <h2>6. Advantages of Using Scales</h2>
+    <ul>
+        <li><strong>Allows large objects to fit on paper</strong> – Can draw a stadium on A4</li>
+        <li><strong>Makes small details visible</strong> – Can enlarge tiny watch parts</li>
+        <li><strong>Maintains proportion</strong> – All parts reduce/enlarge uniformly</li>
+        <li><strong>Saves paper and storage space</strong></li>
+    </ul>
+
+    <h2>7. Disadvantages</h2>
+    <ul>
+        <li><strong>Can cause measurement errors</strong> – If wrong scale is used</li>
+        <li><strong>Requires calculation</strong> – Must convert all dimensions</li>
+        <li><strong>Cannot measure directly from drawing</strong> – Must check scale first</li>
+    </ul>
+
+    <div class="note">
+        <strong>Practical Assignment:</strong> <br>
+        1. Define scale and state 3 types of scales with examples. <br>
+        2. A rectangular field measures 60m × 40m. Draw it at scale 1:500. What are the drawing dimensions? <br>
+        3. On a 1:20 drawing, a door measures 45mm wide. What is the actual width in metres? <br>
+        4. Why must you always write dimensions as actual sizes, not scaled sizes?
+    </div>
+
+</body>
+  </html>
