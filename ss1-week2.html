@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2: Drawing Instruments & Materials - ArchyClass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5722;
+            --primary-dark: #E64A19;
+            --bg: #121212;
+            --card: #1E1E1E;
+            --text: #FFFFFF;
+            --text-muted: #A1A1AA;
+            --border: #333333;
+        }
+        * {margin:0;padding:0;box-sizing:border-box}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        .header {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 20px;
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(10px);
+        }
+        .header a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .header a:hover { color: var(--primary); }
+        .header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin: 0;
+        }
+        .header p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 4px 0 0;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px 16px 60px;
+        }
+        .lesson-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text);
+            font-size: 1.1rem;
+            margin: 24px 0 12px;
+        }
+        h4 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin: 20px 0 10px;
+        }
+        p, li {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+        ul, ol { margin: 12px 0 16px 20px; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--text); font-weight: 600; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.9rem;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: rgba(255,87,34,0.1);
+            color: var(--primary);
+        }
+        .instrument {
+            background: rgba(255,87,34,0.05);
+            border-left: 3px solid var(--primary);
+            padding: 16px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .waec-box {
+            background: rgba(255,193,7,0.1);
+            border: 1px solid rgba(255,193,7,0.3);
+            padding: 16px;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+        .waec-box h4 { color: #FFC107; margin-bottom: 8px; }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="ss1.html">← Back to SS1 Topics</a>
+        <h1>Week 2: Drawing Instruments and Materials</h1>
+        <p>First Term | SS1 Technical Drawing</p>
+    </div>
+
+    <div class="content">
+        <div class="lesson-card">
+            <h2>3. Drawing Instruments and Materials</h2>
+            
+            <h3>Overview</h3>
+            <p>These are the tools and materials used to produce accurate and neat technical drawings. WAEC Paper 1 always tests your knowledge of these instruments, their uses, and how to care for them.</p>
+            <p><strong>Note:</strong> You must be able to identify each instrument by sight and state its use in exams.</p>
+
+            <h3>Types of Drawing Instruments</h3>
+            
+            <h4>A. Measuring & Drawing Tools</h4>
+            <div class="instrument">
+                <p><strong>T-Square</strong> – Used to draw horizontal lines and as a guide for set squares. Never use as a cutting guide. Keep edge clean.</p>
+                <p><strong>Set Squares (45° and 30°/60°)</strong> – Used to draw angles and vertical lines. Store flat to prevent warping.</p>
+                <p><strong>Ruler/Scale Rule</strong> – For measuring and drawing straight lines. Not for drawing lines - measuring only.</p>
+                <p><strong>Protractor</strong> – For measuring and drawing angles from 0° to 180°. Keep clean for visibility.</p>
+                <p><strong>Compass</strong> – For drawing circles and arcs. Keep needle point sharp. Store in case to avoid bending.</p>
+                <p><strong>Divider</strong> – For transferring measurements and dividing lines equally. Both legs have needle points.</p>
+                <p><strong>French Curves</strong> – For drawing irregular curves.</p>
+                <p><strong>Flexible Curve</strong> – Bendable tool for custom curves.</p>
+            </div>
+
+            <h4>B. Drawing Surfaces</h4>
+            <div class="instrument">
+                <p><strong>Drawing Board</strong> – Flat surface to place drawing sheets. Standard WAEC size: 500mm x 350mm. Keep clean, store flat.</p>
+                <p><strong>Drawing Table</strong> – Adjustable surface for professional use.</p>
+            </div>
+
+            <h4>C. Writing/Marking Instruments</h4>
+            <div class="instrument">
+                <p><strong>Pencils (H, HB, B grades)</strong> – Different hardness for different line weights. Keep sharp with conical point.</p>
+                <p><strong>Technical Pens/Rapidograph</strong> – For ink drawings with consistent line width. Clean after use.</p>
+                <p><strong>Eraser</strong> – For corrections. Use soft eraser only. Keep clean to avoid smudges.</p>
+                <p><strong>Erasing Shield</strong> – Protects surrounding lines when erasing.</p>
+            </div>
+
+            <h4>D. Drawing Materials</h4>
+            <div class="instrument">
+                <p><strong>Drawing Paper/Cartridge Paper</strong> – Standard paper for pencil drawings. WAEC uses A3 size (420mm x 297mm).</p>
+                <p><strong>Tracing Paper</strong> – Transparent paper for copying drawings.</p>
+                <p><strong>Drawing Film/Vellum</strong> – Durable, professional drafting material.</p>
+                <p><strong>Drawing Pins/Clips</strong> – For securing paper to the board.</p>
+                <p><strong>Masking Tape</strong> – Holds paper without damaging it. Never use cello tape.</p>
+            </div>
+
+            <h3>Pencil Grades Explained</h3>
+            <table>
+                <tr><th>Grade</th><th>Type</th><th>Use</th></tr>
+                <tr><td>4H – 6H</td><td>Very Hard</td><td>Construction/guide lines</td></tr>
+                <tr><td>2H – 3H</td><td>Hard</td><td>Dimension lines</td></tr>
+                <tr><td>H</td><td>Medium Hard</td><td>General drawing</td></tr>
+                <tr><td>HB</td><td>Medium</td><td>Lettering, sketching</td></tr>
+                <tr><td>B – 2B</td><td>Soft</td><td>Artistic shading, final outlines</td></tr>
+            </table>
+
+            <h3>Advantages of Good Instruments</h3>
+            <ul>
+                <li>Produce accurate, clean drawings</li>
+                <li>Increase speed and efficiency</li>
+                <li>Improve professional quality</li>
+            </ul>
+
+            <h3>Disadvantages</h3>
+            <ul>
+                <li>Quality instruments can be expensive</li>
+                <li>Require maintenance and care</li>
+                <li>Some instruments are fragile</li>
+            </ul>
+
+            <div class="waec-box">
+                <h4>WAEC Past Questions</h4>
+                <p><strong>1.</strong> State two uses of a divider. [WAEC 2022]</p>
+                <p><strong>2.</strong> Differentiate between a compass and a divider. [WAEC 2020]</p>
+                <p><strong>3.</strong> List five drawing instruments and state one use of each. [WAEC 2019]</p>
+                <p><strong>4.</strong> Why is H grade pencil used for construction lines? [WAEC 2021]</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>ArchyClass</strong> by Olami • Technical Drawing for Nigerian Students</p>
+    </footer>
+</body>
+  </html>
