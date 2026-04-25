@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS1 Week 5: Drawing Sheet Layout | ArchyClass</title>
+    <style>
+        :root {
+            --bg-dark: #0d0d0d;
+            --bg-card: #1a1a1a;
+            --accent: #ff5722;
+            --accent-light: #ff7043;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --border: #333333;
+        }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.7; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            color: var(--text-secondary);
+            background: var(--bg-dark);
+        }
+        h1 { 
+            color: var(--text-primary); 
+            border-bottom: 3px solid var(--accent); 
+            padding-bottom: 10px; 
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        h2 { 
+            color: var(--accent-light); 
+            margin-top: 35px; 
+            border-left: 4px solid var(--accent); 
+            padding-left: 12px;
+            font-size: 1.4rem;
+        }
+        h3 { color: var(--text-primary); margin-top: 25px; font-size: 1.2rem; }
+        h4 { color: var(--accent-light); margin-top: 20px; }
+        .note { 
+            background: var(--bg-card); 
+            padding: 15px; 
+            border-left: 5px solid var(--accent); 
+            margin: 25px 0; 
+            border-radius: 0 8px 8px 0;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 20px 0; 
+            background: var(--bg-card);
+        }
+        th, td { 
+            border: 1px solid var(--border); 
+            padding: 12px; 
+            text-align: left; 
+        }
+        th { 
+            background-color: var(--accent); 
+            color: white; 
+        }
+        tr:nth-child(even) { background-color: #222; }
+        ul, ol { padding-left: 25px; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--accent-light); }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">← Back to All Weeks</a>
+
+    <h1>📐 SS1 Technical Drawing: Week 5<br>Drawing Sheet Layout</h1>
+    
+    <div class="note">
+        <strong>Learning Objectives:</strong> By the end of this lesson, students should be able to set up a drawing sheet with proper margins, border, and title block according to ISO standards.
+    </div>
+
+    <h2>1. Overview</h2>
+    <p>A <strong>drawing sheet layout</strong> is the organized arrangement of a technical drawing on paper, following <strong>standardized conventions</strong> to ensure clarity, professionalism, and easy filing.</p>
+    
+    <p>Every professional drawing must follow a standard layout so that anyone, anywhere in the world, can read and understand the information presented.</p>
+
+    <h2>2. Standard Paper Sizes (ISO 216)</h2>
+    <p>Technical drawings use the international "A-series" paper sizes. Each size is half the area of the one above it.</p>
+    
+    <table>
+        <tr><th>Size</th><th>Dimensions (mm)</th><th>Common Use</th></tr>
+        <tr><td><strong>A0</strong></td><td>841 × 1189</td><td>Large maps, posters</td></tr>
+        <tr><td><strong>A1</strong></td><td>594 × 841</td><td>Architectural plans</td></tr>
+        <tr><td><strong>A2</strong></td><td>420 × 594</td><td>Engineering diagrams</td></tr>
+        <tr><td><strong>A3</strong></td><td>297 × 420</td><td>School projects, small plans</td></tr>
+        <tr><td><strong>A4</strong></td><td>210 × 297</td><td>Student assignments, standard printing</td></tr>
+    </table>
+    
+    <p><strong>Note:</strong> SS1 students typically use <strong>A4 size</strong> for class work.</p>
+
+    <h2>3. Components of a Drawing Sheet Layout</h2>
+
+    <h3>A. Margin</h3>
+    <ul>
+        <li>The <strong>space between the edge of the paper and the border line</strong></li>
+        <li>Standard margin: <strong>10–20mm</strong> on top, bottom, and right sides</li>
+        <li><strong>20–25mm</strong> on the left side (binding side) to allow for filing without damaging the drawing</li>
+        <li><strong>Purpose:</strong> Protects the drawing from damage when handling or filing</li>
+    </ul>
+
+    <h3>B. Border</h3>
+    <ul>
+        <li>A <strong>rectangle drawn inside the margin</strong> using a <strong>thick continuous line (0.7mm – 1.0mm)</strong></li>
+        <li>Defines the actual <strong>drawing area</strong> where all work is done</li>
+        <li>No drawing should touch or cross the border line</li>
+        <li>Drawn with a 2H or 3H pencil, then inked with 0.7mm pen</li>
+    </ul>
+
+    <h3>C. Title Block</h3>
+    <p>Located at the <strong>bottom right corner</strong> of the sheet, inside the border. Contains essential information:</p>
+    <ol>
+        <li><strong>Drawing Title</strong> – Name of the object/project (e.g., "Hexagonal Bolt")</li>
+        <li><strong>Drawing Number</strong> – Unique reference number (e.g., TD/SS1/001)</li>
+        <li><strong>Scale</strong> – The scale used (e.g., 1:1, 1:2, 2:1)</li>
+        <li><strong>Date</strong> – When the drawing was completed</li>
+        <li><strong>Drawn By</strong> – Name of the student/drafter</li>
+        <li><strong>Checked By</strong> – Name of teacher/supervisor</li>
+        <li><strong>Sheet Number</strong> – e.g., "Sheet 1 of 3" if multiple sheets</li>
+        <li><strong>School/Company Name and Logo</strong></li>
+        <li><strong>Projection Symbol</strong> – 1st Angle or 3rd Angle projection symbol</li>
+    </ol>
+    <p><strong>Standard Title Block Size for A4:</strong> 170mm × 40mm minimum</p>
+
+    <h3>D. Revision Block</h3>
+    <ul>
+        <li>Usually placed <strong>above the title block</strong> or at top right</li>
+        <li>Records all <strong>changes made to the drawing</strong> after first issue</li>
+        <li>Columns: Revision No., Description of Change, Date, Initials</li>
+    </ul>
+
+    <h3>E. Folding Marks</h3>
+    <ul>
+        <li>Small triangular marks on the border</li>
+        <li>Guide for folding large sheets (A3, A2, A1) down to <strong>A4 size</strong> for filing</li>
+        <li>Ensures title block is visible when folded</li>
+    </ul>
+
+    <h2>4. Advantages of Standard Layout</h2>
+    <ul>
+        <li><strong>Easy identification and filing</strong> – Title block gives all info at a glance</li>
+        <li><strong>Professional appearance</strong> – Required for WAEC/NECO and industry</li>
+        <li><strong>Legal requirement</strong> – Needed for government approvals and contracts</li>
+        <li><strong>Consistency</strong> – All drawings from one organization look uniform</li>
+    </ul>
+
+    <h2>5. Disadvantages</h2>
+    <ul>
+        <li><strong>Takes time to set up manually</strong> – Must be drawn before starting the main work</li>
+        <li><strong>Mistakes in title block cause confusion</strong> – Wrong date/scale ruins the drawing</li>
+        <li><strong>Different organizations use different formats</strong> – Students must adapt</li>
+    </ul>
+
+    <div class="note">
+        <strong>Practical Assignment:</strong> <br>
+        1. On an A4 sheet, draw margins: 20mm left, 10mm top/right/bottom. <br>
+        2. Draw a border line 0.7mm thick inside the margins. <br>
+        3. Create a title block 170mm × 40mm at bottom right with all 9 required items. <br>
+        4. List the 5 standard A-series paper sizes and their dimensions.
+    </div>
+
+</body>
+  </html>
