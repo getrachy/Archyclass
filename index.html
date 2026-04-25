@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArchyClass - Technical Drawing for Future Architects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E85A2A;
+            --bg: #0A0A0B;
+            --card: #111113;
+            --text: #F5F5F5;
+            --text-muted: #A1A1AA;
+            --border: #27272A;
+        }
+        * {margin:0;padding:0;box-sizing:border-box}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,107,53,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,107,53,0.1) 0%, transparent 50%),
+                var(--bg);
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF6B35' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .badge {
+            background: rgba(255,107,53,0.1);
+            border: 1px solid rgba(255,107,53,0.3);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #A1A1AA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .highlight {color: var(--primary); -webkit-text-fill-color: var(--primary);}
+        .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 20px rgba(255,107,53,0.4);
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255,107,53,0.5);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            color: var(--text);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--primary);
+        }
+        .classes {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .class-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .class-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), #FFB800);
+        }
+        .class-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .class-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .class-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        .class-card p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+        .creator {
+            font-weight: 600;
+            color: var(--text);
+        }
+        @media (max-width: 768px) {
+            .cta-group {flex-direction: column; align-items: center;}
+            .btn {width: 100%; max-width: 300px; justify-content: center;}
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="badge">🇳🇬 Built for Nigerian Students • LASU Architecture 2026</div>
+        <h1>Master <span class="highlight">Technical Drawing</span><br>Like a Future Architect</h1>
+        <p class="subtitle">WAEC, NECO & JAMB standard lessons. From SS1 to SS3. Explained by Olami, taught like LASU. Free for all Nigerian students.</p>
+        
+        <div class="cta-group">
+            <a href="#classes" class="btn btn-primary">
+                Start Learning Free →
+            </a>
+            <a href="https://wa.me/2347037183105?text=Hi%20Olami,%20I%20found%20ArchyClass%20and%20I%20want%20to%20learn%20TD" class="btn btn-secondary">
+                Chat with Olami
+            </a>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-num">36</div>
+                <div class="stat-label">Detailed Lessons</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">3</div>
+                <div class="stat-label">Full Classes</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">100%</div>
+                <div class="stat-label">WAEC Standard</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="classes" id="classes">
+        <h2 class="section-title">Choose Your Class</h2>
+        <div class="class-grid">
+            <a href="ss1.html" class="class-card">
+                <div class="class-num">01</div>
+                <h3>SS1 Technical Drawing</h3>
+                <p>Foundation: Instruments, Lines, Lettering, Angles, Basic Constructions. Start your journey here.</p>
+                <span class="btn btn-primary">Enter SS1 →</span>
+            </a>
+            
+            <a href="ss2.html" class="class-card">
+                <div class="class-num">02</div>
+                <h3>SS2 Technical Drawing</h3>
+                <p>Intermediate: Polygons, Scales, Loci, Tangents, Orthographic Basics. Build your skill.</p>
+                <span class="btn btn-primary">Enter SS2 →</span>
+            </a>
+            
+            <a href="ss3.html" class="class-card">
+                <div class="class-num">03</div>
+                <h3>SS3 Technical Drawing</h3>
+                <p>Advanced: Orthographic, Isometric, Sectioning, Assembly. WAEC exam mastery.</p>
+                <span class="btn btn-primary">Enter SS3 →</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong class="creator">ArchyClass</strong> by Olami</p>
+        <p>Technical Drawing for Nigerian Students | LASU Architecture 2026</p>
+        <p style="margin-top:16px; font-size:0.8rem;">© 2026 ArchyClass.ng • WhatsApp: 07037183105</p>
+    </footer>
+</body>
+              </html>
