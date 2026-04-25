@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArchyClass - SS1 Technical Drawing | Full Syllabus</title>
+    <style>
+        :root {
+            --bg-dark: #0d0d0d;
+            --bg-card: #1a1a1a;
+            --bg-glass: rgba(26, 26, 26, 0.6);
+            --accent: #ff5722;
+            --accent-light: #ff7043;
+            --accent-glow: rgba(255, 87, 34, 0.3);
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --text-muted: #888;
+            --border: #333333;
+            --border-glow: #ff5722;
+            --success: #4caf50;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+            line-height: 1.6; 
+            background: var(--bg-dark);
+            color: var(--text-secondary);
+            min-height: 100vh;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 20% 20%, var(--accent-glow) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 112, 67, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .logo span { color: var(--accent); }
+        .tagline { color: var(--text-muted); font-size: 1.1rem; }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Term Tabs */
+        .term-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            padding: 8px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .term-tab {
+            flex: 1;
+            padding: 14px 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .term-tab.active {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .term-tab:hover:not(.active) {
+            background: rgba(255, 87, 34, 0.1);
+        }
+
+        /* Term Content */
+        .term-content { display: none; }
+        .term-content.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Week Grid */
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .week-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .week-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+            background: var(--accent);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        .week-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 30px rgba(255, 87, 34, 0.15);
+            transform: translateY(-3px);
+        }
+        .week-card:hover::before { transform: scaleY(1); }
+        .week-number {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .week-badge {
+            background: var(--accent);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+        }
+        .week-title {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .week-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        .week-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: gap 0.3s ease;
+        }
+        .week-link:hover { gap: 10px; }
+        .week-status {
+            position: absolute;
+            top: 15px; right: 15px;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(76, 175, 80, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+        .week-status.pending {
+            background: rgba(136, 136, 136, 0.2);
+            color: var(--text-muted);
+            border-color: var(--text-muted);
+        }
+        .week-status.break {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+            border-color: #ffc107;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+        .footer strong { color: var(--accent); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo { font-size: 2rem; }
+            .week-grid { grid-template-columns: 1fr; }
+            .term-tabs { flex-direction: column; }
+            .stats { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">Archy<span>Class</span></div>
+            <div class="tagline">SS1 Technical Drawing | WAEC/NECO Complete Syllabus</div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Terms</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">39</div>
+                    <div class="stat-label">Weeks</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">WAEC Aligned</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="term-tabs">
+            <button class="term-tab active" onclick="showTerm('term1')">First Term</button>
+            <button class="term-tab" onclick="showTerm('term2')">Second Term</button>
+            <button class="term-tab" onclick="showTerm('term3')">Third Term</button>
+        </div>
+
+        <!-- TERM 1 -->
+        <div id="term1" class="term-content active">
+            <div class="week-grid">
+                <div class="week-card">
+                    <div class="week-status">Done</div>
+                    <div class="week-number">WEEK 1 <span class="week-badge">15 MARKS</span></div>
+                    <div class="week-title">Introduction to Technical Drawing</div>
+                    <div class="week-desc">Definition, importance, branches, career paths in engineering & architecture.</div>
+                    <a href="ss1-week1.html" class="week-link">Open Note →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status">Done</div>
+                    <div class="week-number">WEEK 2</div>
+                    <div class="week-title">Importance in Engineering & Architecture</div>
+                    <div class="week-desc">Role of TD in construction, manufacturing, design communication.</div>
+                    <a href="ss1-week2.html" class="week-link">Open Note →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status">Done</div>
+                    <div class="week-number">WEEK 3</div>
+                    <div class="week-title">Drawing Instruments and Materials</div>
+                    <div class="week-desc">T-square, compass, set squares, pencils, drawing boards.</div>
+                    <a href="ss1-week3.html" class="week-link">Open Note →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status">Done</div>
+                    <div class="week-number">WEEK 4</div>
+                    <div class="week-title">Care of Drawing Instruments</div>
+                    <div class="week-desc">Maintenance, storage, handling to prevent damage and ensure accuracy.</div>
+                    <a href="ss1-week4.html" class="week-link">Open Note →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status">Done</div>
+                    <div class="week-number">WEEK 5</div>
+                    <div class="week-title">Drawing Sheet Layout</div>
+                    <div class="week-desc">Border lines, title block, margins, paper sizes A4-A0.</div>
+                    <a href="ss1-week5.html" class="week-link">Open Note →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status">Done</div>
+                    <div class="week-number">WEEK 6</div>
+                    <div class="week-title">Drawing Lines</div>
+                    <div class="week-desc">Types of lines, applications, line weights for construction.</div>
+                    <a href="ss1-week6.html" class="week-link">Open Note →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status">Done</div>
+                    <div class="week-number">WEEK 7</div>
+                    <div class="week-title">Lettering</div>
+                    <div class="week-desc">Freehand lettering, gothic style, spacing, guidelines.</div>
+                    <a href="ss1-week7.html" class="week-link">Open Note →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status">Done</div>
+                    <div class="week-number">WEEK 8</div>
+                    <div class="week-title">Construction of Basic Shapes</div>
+                    <div class="week-desc">Bisecting lines, angles, constructing triangles, quadrilaterals.</div>
+                    <a href="ss1-week8.html" class="week-link">Open Note →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status">Done</div>
+                    <div class="week-number">WEEK 9</div>
+                    <div class="week-title">Scales and Scaling</div>
+                    <div class="week-desc">Types of scales, RF, constructing plain and diagonal scales.</div>
+                    <a href="ss1-week9.html" class="week-link">Open Note →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status">Done</div>
+                    <div class="week-number">WEEK 10 <span class="week-badge">20 MARKS</span></div>
+                    <div class="week-title">Orthographic Projection</div>
+                    <div class="week-desc">First & third angle projection, multi-view drawings.</div>
+                    <a href="ss1-week10.html" class="week-link">Open Note →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status">Done</div>
+                    <div class="week-number">WEEK 11</div>
+                    <div class="week-title">Freehand Sketching & Pictorial Drawing</div>
+                    <div class="week-desc">Isometric, oblique, perspective sketching techniques.</div>
+                    <a href="ss1-week11.html" class="week-link">Open Note →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status">Done</div>
+                    <div class="week-number">BONUS</div>
+                    <div class="week-title">Circles - Master Construction Note</div>
+                    <div class="week-desc">All circle constructions: centre, tangents, through 3 points.</div>
+                    <a href="ss1-circles-full-note.html" class="week-link">Open Note →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TERM 2 -->
+        <div id="term2" class="term-content">
+            <div class="week-grid">
+                <div class="week-card">
+                    <div class="week-status pending">Next</div>
+                    <div class="week-number">WEEK 1-3 <span class="week-badge">15 MARKS</span></div>
+                    <div class="week-title">Welcome Test + Introduction to Polygons</div>
+                    <div class="week-desc">Types of polygons, parts, construct regular pentagon, hexagon, octagon.</div>
+                    <a href="ss1-term2-week1.html" class="week-link">Start Note →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status pending">Pending</div>
+                    <div class="week-number">WEEK 4</div>
+                    <div class="week-title">Scale</div>
+                    <div class="week-desc">Plain scale, diagonal scale, scale of chords. Reading and constructing.</div>
+                    <a href="ss1-term2-week4.html" class="week-link">Coming Soon →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status pending">Pending</div>
+                    <div class="week-number">WEEK 5-6</div>
+                    <div class="week-title">Enlargement & Reduction of Plane Figures</div>
+                    <div class="week-desc">Similar figures, scale factor, radial method, grid method.</div>
+                    <a href="ss1-term2-week5.html" class="week-link">Coming Soon →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status break">Break</div>
+                    <div class="week-number">WEEK 7</div>
+                    <div class="week-title">Mid Term Break</div>
+                    <div class="week-desc">No classes. Rest and practice constructions.</div>
+                </div>
+                <div class="week-card">
+                    <div class="week-status pending">Pending</div>
+                    <div class="week-number">WEEK 8-9</div>
+                    <div class="week-title">Equal Areas of Similar Figures</div>
+                    <div class="week-desc">Construct figures with same area but different shapes.</div>
+                    <a href="ss1-term2-week8.html" class="week-link">Coming Soon →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status pending">Pending</div>
+                    <div class="week-number">WEEK 10-11 <span class="week-badge">15 MARKS</span></div>
+                    <div class="week-title">Tangents & Tangency</div>
+                    <div class="week-desc">Tangents to circles, circles tangent to lines/circles, blending arcs.</div>
+                    <a href="ss1-term2-week10.html" class="week-link">Coming Soon →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status pending">Pending</div>
+                    <div class="week-number">WEEK 12</div>
+                    <div class="week-title">Revision</div>
+                    <div class="week-desc">Complete revision of all Term 2 topics Week 1-11.</div>
+                    <a href="ss1-term2-week12.html" class="week-link">Coming Soon →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status pending">Pending</div>
+                    <div class="week-number">WEEK 13</div>
+                    <div class="week-title">Examination</div>
+                    <div class="week-desc">End of Second Term examination.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TERM 3 -->
+        <div id="term3" class="term-content">
+            <div class="week-grid">
+                <div class="week-card">
+                    <div class="week-status pending">Pending</div>
+                    <div class="week-number">WEEK 1-4 <span class="week-badge">20 MARKS</span></div>
+                    <div class="week-title">Welcome Test + Loci + Conic Sections</div>
+                    <div class="week-desc">Loci of moving points. Ellipse, Parabola, Hyperbola constructions.</div>
+                    <a href="ss1-term3-week1.html" class="week-link">Coming Soon →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status pending">Pending</div>
+                    <div class="week-number">WEEK 5</div>
+                    <div class="week-title">Prisms</div>
+                    <div class="week-desc">Types, orthographic & isometric projection of prisms.</div>
+                    <a href="ss1-term3-week5.html" class="week-link">Coming Soon →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status pending">Pending</div>
+                    <div class="week-number">WEEK 6</div>
+                    <div class="week-title">Pyramids & Cone</div>
+                    <div class="week-desc">Types, orthographic & isometric of pyramids and cones.</div>
+                    <a href="ss1-term3-week6.html" class="week-link">Coming Soon →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status break">Break</div>
+                    <div class="week-number">WEEK 7</div>
+                    <div class="week-title">Mid-Term Break</div>
+                    <div class="week-desc">No classes. Practice surface development.</div>
+                </div>
+                <div class="week-card">
+                    <div class="week-status pending">Pending</div>
+                    <div class="week-number">WEEK 8-9 <span class="week-badge">15 MARKS</span></div>
+                    <div class="week-title">Surface Development</div>
+                    <div class="week-desc">Development of prisms, cylinders, pyramids, cones.</div>
+                    <a href="ss1-term3-week8.html" class="week-link">Coming Soon →</a>
+                </div>
+                <div class="week-card">
+                    <div class="week-status pending">Pending</div>
+                    <div class="week-number">WEEK 10</div>
+          
