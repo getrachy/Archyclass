@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS1 Technical Drawing - ArchyClass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E85A2A;
+            --bg: #0A0A0B;
+            --card: #111113;
+            --text: #F5F5F5;
+            --text-muted: #A1A1AA;
+            --border: #27272A;
+        }
+        * {margin:0;padding:0;box-sizing:border-box}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {max-width: 1000px; margin: 0 auto;}
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding: 16px 0;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .back-btn:hover {color: var(--primary);}
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #A1A1AA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight {color: var(--primary); -webkit-text-fill-color: var(--primary);}
+        .subtitle {color: var(--text-muted); font-size: 1rem;}
+        
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+        }
+        .tab-btn {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+        .tab-content {display: none;}
+        .tab-content.active {display: block;}
+        
+        .week-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            margin: 12px 0;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+        .week-link:hover {
+            background: rgba(255,107,53,0.08);
+            border-color: var(--primary);
+            transform: translateX(6px);
+        }
+        .week-info {flex: 1;}
+        .week-num {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .week-title {font-weight: 500; font-size: 0.95rem;}
+        .arrow {color: var(--text-muted); transition: 0.2s;}
+        .week-link:hover .arrow {color: var(--primary); transform: translateX(4px);}
+        
+        .cta {
+            text-align: center;
+            padding: 32px 20px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            margin-top: 40px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 20px rgba(255,107,53,0.4);
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        footer {
+            text-align: center;
+            padding: 32px 20px 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="back-btn">← Back to Home</a>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--primary)">ArchyClass</div>
+        </nav>
+
+        <header class="header">
+            <h1>SS1 <span class="highlight">Technical Drawing</span></h1>
+            <p class="subtitle">Select a term to view weeks</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('first')">First Term</button>
+            <button class="tab-btn" onclick="showTab('second')">Second Term</button>
+            <button class="tab-btn" onclick="showTab('third')">Third Term</button>
+        </div>
+
+        <div id="first" class="tab-content active">
+            <a href="ss1-week1.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 01</span>
+                    <span class="week-title">Introduction to Technical Drawing</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-week2.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 02</span>
+                    <span class="week-title">Importance of Technical Drawing</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-week3.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 03</span>
+                    <span class="week-title">Drawing Instruments</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-week4.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 04</span>
+                    <span class="week-title">Care & Use of Instruments</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-week5.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 05</span>
+                    <span class="week-title">Drawing Board & T-Square</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-week6.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 06</span>
+                    <span class="week-title">Types of Lines</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-week7.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 07</span>
+                    <span class="week-title">Lettering: Vertical Single Stroke</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-week8.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 08</span>
+                    <span class="week-title">Lettering: Inclined Gothic</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-week9.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 09</span>
+                    <span class="week-title">Dimensioning Rules</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-week10.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 10</span>
+                    <span class="week-title">Angles: Construction</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-week11.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 11</span>
+                    <span class="week-title">Triangles: Construction</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-week12.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 12</span>
+                    <span class="week-title">Circles: Basic Construction</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+
+        <div id="second" class="tab-content">
+            <a href="ss1-term2-week1.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 1-3</span>
+                    <span class="week-title">Welcome Test + Introduction to Polygons</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term2-week4.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 04</span>
+                    <span class="week-title">Scale</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term2-week5.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 5-6</span>
+                    <span class="week-title">Enlargement & Reduction of Plane Figures</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term2-week7.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 07</span>
+                    <span class="week-title">Mid Term Break</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term2-week8.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 8-9</span>
+                    <span class="week-title">Equal Areas of Similar Figures</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term2-week10.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 10-11</span>
+                    <span class="week-title">Tangents & Tangency</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term2-week12.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 12</span>
+                    <span class="week-title">Revision</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term2-week13.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 13</span>
+                    <span class="week-title">Examination</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+
+        <div id="third" class="tab-content">
+            <a href="ss1-term3-week1.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 1-4</span>
+                    <span class="week-title">Welcome Test + Loci + Conic Sections</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term3-week5.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 05</span>
+                    <span class="week-title">Prisms</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term3-week6.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 06</span>
+                    <span class="week-title">Pyramids & Cone</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term3-week7.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 07</span>
+                    <span class="week-title">Mid-Term Break</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term3-week8.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 8-9</span>
+                    <span class="week-title">Surface Development</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term3-week10.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 10</span>
+                    <span class="week-title">Dimensioning</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term3-week11.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 11</span>
+                    <span class="week-title">Construction</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term3-week12.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 12</span>
+                    <span class="week-title">Revision</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+            <a href="ss1-term3-week13.html" class="week-link">
+                <div class="week-info">
+                    <span class="week-num">Week 13</span>
+                    <span class="week-title">Examination</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+
+        <div class="cta">
+            <a href="https://wa.me/2347037183105?text=Hi%20Olami,%20I%20need%20help%20with%20SS1%20Technical%20Drawing" class="btn">Need Help? Chat with Olami →</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 ArchyClass • Built by Olami for Nigerian Students</p>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+  </html>
