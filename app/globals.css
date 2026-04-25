@@ -1,0 +1,31 @@
+:root {
+  --primary: #FF5722;
+  --primary-dark: #E64A19;
+  --bg: #121212;
+  --card: #1E1E1E;
+  --text: #FFFFFF;
+  --text-muted: #A1A1AA;
+  --border: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Tailwind base - keep this */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
