@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS1 Week 6: Drawing Lines | ArchyClass</title>
+    <style>
+        :root {
+            --bg-dark: #0d0d0d;
+            --bg-card: #1a1a1a;
+            --accent: #ff5722;
+            --accent-light: #ff7043;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --border: #333333;
+        }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.7; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            color: var(--text-secondary);
+            background: var(--bg-dark);
+        }
+        h1 { 
+            color: var(--text-primary); 
+            border-bottom: 3px solid var(--accent); 
+            padding-bottom: 10px; 
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        h2 { 
+            color: var(--accent-light); 
+            margin-top: 35px; 
+            border-left: 4px solid var(--accent); 
+            padding-left: 12px;
+            font-size: 1.4rem;
+        }
+        h3 { color: var(--text-primary); margin-top: 25px; font-size: 1.2rem; }
+        h4 { color: var(--accent-light); margin-top: 20px; }
+        .note { 
+            background: var(--bg-card); 
+            padding: 15px; 
+            border-left: 5px solid var(--accent); 
+            margin: 25px 0; 
+            border-radius: 0 8px 8px 0;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 20px 0; 
+            background: var(--bg-card);
+        }
+        th, td { 
+            border: 1px solid var(--border); 
+            padding: 12px; 
+            text-align: left; 
+        }
+        th { 
+            background-color: var(--accent); 
+            color: white; 
+        }
+        tr:nth-child(even) { background-color: #222; }
+        ul, ol { padding-left: 25px; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--accent-light); }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .line-demo {
+            font-family: monospace;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: var(--accent-light);
+            background: #000;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">← Back to All Weeks</a>
+
+    <h1>📐 SS1 Technical Drawing: Week 6<br>Drawing Lines (Types, Thickness, Uses)</h1>
+    
+    <div class="note">
+        <strong>Learning Objectives:</strong> By the end of this lesson, students should be able to identify, draw, and state the uses of the 8 standard types of lines used in technical drawing.
+    </div>
+
+    <h2>1. Overview</h2>
+    <p><strong>Lines are the foundation of technical drawing.</strong> Different line types, thicknesses, and styles convey different types of information on a drawing.</p>
+    
+    <p>Using the wrong line type is like using the wrong word in a sentence – it changes the meaning and causes confusion. All lines must follow <strong>ISO standards</strong> so they are understood universally.</p>
+
+    <h2>2. The 8 Standard Types of Lines</h2>
+    
+    <table>
+        <tr><th>Line Type</th><th>Appearance</th><th>Thickness</th><th>Main Use</th></tr>
+        <tr>
+            <td><strong>1. Continuous Thick</strong></td>
+            <td><span class="line-demo">——————</span></td>
+            <td>0.7mm</td>
+            <td>Visible outlines, edges</td>
+        </tr>
+        <tr>
+            <td><strong>2. Continuous Thin</strong></td>
+            <td><span class="line-demo">——————</span></td>
+            <td>0.35mm</td>
+            <td>Dimension lines, leader lines, hatching, projection lines</td>
+        </tr>
+        <tr>
+            <td><strong>3. Dashed/Hidden</strong></td>
+            <td><span class="line-demo">- - - - - -</span></td>
+            <td>0.35mm</td>
+            <td>Hidden edges, hidden outlines</td>
+        </tr>
+        <tr>
+            <td><strong>4. Chain Thin/Centre</strong></td>
+            <td><span class="line-demo">_._._._._</span></td>
+            <td>0.35mm</td>
+            <td>Centre of circles, axes of symmetry, paths of motion</td>
+        </tr>
+        <tr>
+            <td><strong>5. Chain Thick</strong></td>
+            <td><span class="line-demo">_._._._._</span></td>
+            <td>0.7mm</td>
+            <td>Cutting plane lines for sections</td>
+        </tr>
+        <tr>
+            <td><strong>6. Zigzag/Break Line</strong></td>
+            <td><span class="line-demo">~~/~~/~~</span></td>
+            <td>0.35mm</td>
+            <td>Short breaks in long objects</td>
+        </tr>
+        <tr>
+            <td><strong>7. Continuous Thin Irregular</strong></td>
+            <td><span class="line-demo">~~~~~~~~</span></td>
+            <td>0.35mm</td>
+            <td>Long break lines, limits of partial views</td>
+        </tr>
+        <tr>
+            <td><strong>8. Double-dash Chain</strong></td>
+            <td><span class="line-demo">_.._.._..</span></td>
+            <td>0.35mm</td>
+            <td>Adjacent parts, alternative positions, centroidal lines</td>
+        </tr>
+    </table>
+
+    <h2>3. Detailed Descriptions & Rules</h2>
+
+    <h3>A. Outline/Object Line (Continuous Thick - 0.7mm)</h3>
+    <ul>
+        <li><strong>Heaviest line on a drawing</strong> – Must stand out clearly</li>
+        <li>Defines the <strong>visible shape</strong> of an object</li>
+        <li>Always drawn <strong>first</strong> when starting a drawing</li>
+        <li>Must be <strong>dense black</strong> and uniform thickness</li>
+    </ul>
+
+    <h3>B. Dimension Line (Continuous Thin - 0.35mm)</h3>
+    <ul>
+        <li>Has <strong>arrowheads at both ends</strong> touching extension lines</li>
+        <li>Shows the <strong>measurement</strong> of a feature</li>
+        <li>Dimension figure is placed <strong>above the line</strong> or in a gap</li>
+        <li>Never crosses other lines if possible</li>
+    </ul>
+
+    <h3>C. Extension/Projection Line (Continuous Thin - 0.35mm)</h3>
+    <ul>
+        <li>Extends from the object to the dimension line</li>
+        <li><strong>Does not touch the object</strong> – leave a small 1mm gap</li>
+        <li>Extends <strong>2-3mm beyond</strong> the dimension line</li>
+    </ul>
+
+    <h3>D. Centre Line (Chain Thin - 0.35mm)</h3>
+    <ul>
+        <li><strong>Alternating long dash and short dash</strong></li>
+        <li>Marks the <strong>centre of circles, arcs, and symmetrical features</strong></li>
+        <li>Must <strong>extend slightly beyond</strong> the feature (2-3mm)</li>
+        <li>Long dashes should intersect at the centre of circles</li>
+    </ul>
+
+    <h3>E. Hidden Detail Line (Dashed - 0.35mm)</h3>
+    <ul>
+        <li><strong>Short, equally spaced dashes</strong> (3mm dash, 2mm gap)</li>
+        <li>Shows <strong>edges and outlines not visible</strong> from the viewing direction</li>
+        <li>Dashes should <strong>start and end touching</strong> visible lines</li>
+    </ul>
+
+    <h3>F. Cutting Plane Line (Chain Thick - 0.7mm)</h3>
+    <ul>
+        <li>Shows where an <strong>imaginary cut</strong> is made to reveal interior details</li>
+        <li>Has <strong>thick arrowheads</strong> showing direction of view</li>
+        <li>Lettered A-A, B-B, etc. to match the sectional view</li>
+    </ul>
+
+    <h2>4. Line Thickness Standards</h2>
+    <p>Technical drawing uses <strong>only 2 main thicknesses</strong> for clarity:</p>
+    <ul>
+        <li><strong>Thick Lines: 0.7mm</strong> – For outlines and cutting planes only</li>
+        <li><strong>Thin Lines: 0.35mm</strong> – For everything else</li>
+        <li><strong>Ratio:</strong> Thick lines must be <strong>twice as thick</strong> as thin lines</li>
+    </ul>
+
+    <h2>5. Advantages of Standardized Lines</h2>
+    <ul>
+        <li><strong>Universal understanding</strong> – Engineers in Nigeria, Japan, and Brazil read the same meaning</li>
+        <li><strong>Reduces confusion</strong> – No guessing what a line means</li>
+        <li><strong>Makes drawings cleaner</strong> – Hierarchy of line weights improves readability</li>
+        <li><strong>Required for WAEC/NECO</strong> – Wrong lines lose marks</li>
+    </ul>
+
+    <h2>6. Disadvantages</h2>
+    <ul>
+        <li><strong>Requires practice</strong> – Mastering 8 line types takes time</li>
+        <li><strong>Poor line quality fails drawings</strong> – Wobbly or wrong thickness lines are unprofessional</li>
+        <li><strong>Manual consistency is difficult</strong> – Hard to keep all thin lines exactly 0.35mm by hand</li>
+    </ul>
+
+    <div class="note">
+        <strong>Practical Assignment:</strong> <br>
+        1. On A4 paper, draw all 8 types of lines, 100mm long each. Label each type. <br>
+        2. Use 0.7mm pen for thick lines and 0.35mm pen for thin lines. <br>
+        3. State the use of: a) Dashed line b) Chain thin line c) Continuous thick line
+    </div>
+
+</body>
+                                                                 </html>
