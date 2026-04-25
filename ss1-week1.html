@@ -5,25 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 1: Introduction to Technical Drawing - ArchyClass</title>
     <style>
-        body {font-family:system-ui,sans-serif;margin:0;padding:20px;background:#f8f9fa;color:#333;line-height:1.7}
-        .header {background:#ff6b35;color:white;padding:20px;border-radius:12px;margin-bottom:25px}
-        .header a {color:white;text-decoration:none;font-weight:600}
-        .content {background:white;padding:25px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
-        h1 {margin:0 0 10px;color:#ff6b35}
-        h2 {color:#ff6b35;margin:25px 0 10px;font-size:1.3rem;border-bottom:2px solid #ff6b35;padding-bottom:5px}
-        h3 {margin:20px 0 8px;font-size:1.1rem}
-        table {width:100%;border-collapse:collapse;margin:15px 0}
-        th, td {border:1px solid #ddd;padding:10px;text-align:left}
-        th {background:#ff6b35;color:white}
-        ul {padding-left:20px}
-        .btn {display:inline-block;background:#ff6b35;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;margin:20px 5px 0;font-weight:600}
-        .btn-outline {background:white;color:#ff6b35;border:2px solid #ff6b35}
-        .nav {display:flex;justify-content:space-between;margin-top:30px}
-        footer {text-align:center;margin-top:40px;padding:20px;color:#666;font-size:0.9rem}
+        :root {
+            --primary: #FF5722;
+            --primary-dark: #E64A19;
+            --bg: #121212;
+            --card: #1E1E1E;
+            --text: #FFFFFF;
+            --text-muted: #A1A1AA;
+            --border: #333333;
+        }
+        * {margin:0;padding:0;box-sizing:border-box}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 0;
+        }
+        .header {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 20px;
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(10px);
+        }
+        .header a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .header a:hover { color: var(--primary); }
+        .header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin: 0;
+        }
+        .header p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 4px 0 0;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px 16px 60px;
+        }
+        .content h2 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin: 0 16px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 8px;
+        }
+        .content p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        .content {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
     </style>
 </head>
 <body>
-    <div class="header">
+        <div class="header">
         <a href="ss1.html">← Back to SS1 Topics</a>
         <h1>Week 1: Introduction to Technical Drawing</h1>
         <p>First Term | SS1 Technical Drawing</p>
